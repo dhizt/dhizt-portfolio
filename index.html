@@ -19,8 +19,6 @@
             --text-muted: #94a3b8;
             --text-bright: #f8fafc;
             --border: #334155;
-            --success: #10b981;
-            --warning: #f59e0b;
         }
         * {
             margin: 0;
@@ -39,7 +37,8 @@
             margin: 0 auto;
             padding: 0 24px;
         }
-        /* Hero Section */
+
+        /* ===== HERO ===== */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -47,26 +46,7 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            overflow: hidden;
             background: linear-gradient(135deg, var(--bg) 0%, #1a1a2e 50%, #16213e 100%);
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-        }
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
         .hero-name {
             font-size: 4.5rem;
@@ -74,7 +54,6 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             margin-bottom: 16px;
             letter-spacing: -2px;
         }
@@ -105,7 +84,8 @@
             width: 20px;
             height: 20px;
         }
-        /* Section Styles */
+
+        /* ===== SECTION ===== */
         section {
             padding: 100px 0;
         }
@@ -125,21 +105,8 @@
             max-width: 600px;
             margin: 0 auto;
         }
-        /* Summary Section */
-        .summary {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #16213e 100%);
-        }
-        .summary-content {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: var(--text);
-        }
-        /* Experience Section */
-        .experience {
-            background: var(--bg);
-        }
+
+        /* ===== EXPERIENCE ===== */
         .timeline {
             position: relative;
             max-width: 900px;
@@ -188,222 +155,67 @@
             color: var(--accent);
             font-weight: 500;
         }
-        .timeline-company {
-            font-size: 1.1rem;
+        .timeline-company a {
             color: var(--primary);
             font-weight: 500;
-            margin-bottom: 12px;
+            text-decoration: none;
+            transition: all 0.2s ease;
         }
-        .timeline-bullets {
-            list-style: none;
+        .timeline-company a:hover {
+            color: #c084fc;
+            text-decoration: underline;
         }
-        .timeline-bullets li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-            color: var(--text-muted);
-        }
-        .timeline-bullets li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-        /* Skills Section */
-        .skills {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #16213e 100%);
-        }
-        .skills-grid {
+
+        /* ===== SOCIAL PROOF (FIXED) ===== */
+        .social-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
         }
-        .skill-card {
+        .social-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 32px;
+            padding: 24px;
+            text-decoration: none;
+            color: var(--text);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
-        .skill-card:hover {
-            transform: translateY(-4px);
+        .social-card:hover {
+            transform: translateY(-6px);
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
         }
-        .skill-name {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-bright);
-            margin-bottom: 8px;
+        .social-card-content {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
-        .skill-level {
+        .social-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .social-platform {
             color: var(--accent);
             font-weight: 500;
         }
-        /* Achievements Section */
-        .achievements {
-            background: var(--bg);
+        .social-arrow {
+            font-size: 1.2rem;
+            transition: transform 0.2s ease;
         }
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
+        .social-card:hover .social-arrow {
+            transform: translateX(4px);
         }
-        .achievement-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.3s ease;
-        }
-        .achievement-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.1);
-        }
-        .achievement-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-bright);
-            margin-bottom: 24px;
-        }
-        .achievement-bullets {
-            list-style: none;
-        }
-        .achievement-bullets li {
-            position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-        .achievement-bullets li::before {
-            content: '✦';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-        }
-        /* Stats Section */
-        .stats {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #16213e 100%);
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .stat-card {
-            text-align: center;
-            padding: 32px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-        }
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-        }
-        .stat-label {
-            font-size: 1rem;
-            color: var(--text-muted);
-        }
-        /* Social Proof Section */
-        .social-proof {
-            background: var(--bg);
-        }
-        .tweet-card {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 32px;
-        }
-        .tweet-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .tweet-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-        }
-        .tweet-user {
-            font-weight: 600;
-            color: var(--text-bright);
-        }
-        .tweet-handle {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .tweet-date {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-left: auto;
-        }
-        .tweet-text {
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            color: var(--text);
-        }
-        .tweet-stats {
-            display: flex;
-            gap: 32px;
-            padding-top: 16px;
-            border-top: 1px solid var(--border);
-        }
-        .tweet-stat {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-        .tweet-stat-icon {
-            font-size: 1.1rem;
-        }
-        /* CTA Section */
-        .cta {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #16213e 100%);
-            text-align: center;
-        }
-        .cta-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .cta-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--text-bright);
-            margin-bottom: 16px;
-        }
-        .cta-text {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-        }
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
+
+        /* ===== BUTTON ===== */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -432,54 +244,26 @@
             border-color: var(--primary);
             color: var(--primary);
         }
-        /* Footer */
-        footer {
-            padding: 48px 0;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-name {
-                font-size: 3rem;
-            }
-            .hero-title {
-                font-size: 1.2rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .timeline-header {
-                flex-direction: column;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .hero-name { font-size: 3rem; }
+            .hero-title { font-size: 1.2rem; }
         }
         @media (max-width: 480px) {
-            .hero-name {
-                font-size: 2.5rem;
-            }
-            .hero-contact {
-                flex-direction: column;
-                align-items: center;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero-name { font-size: 2.5rem; }
+            .hero-contact { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+
+    <!-- HERO -->
     <section class="hero">
         <div class="container hero-content">
             <h1 class="hero-name">Dhizt</h1>
             <p class="hero-title">Web3 Community Moderator | Ambassador | Content Creator</p>
             
-            <!-- CONTACT INFO - UPDATED -->
             <div class="hero-contact">
                 <!-- Email -->
                 <a href="mailto:youdhisthira@gmail.com" class="contact-item">
@@ -490,7 +274,7 @@
                     youdhisthira@gmail.com
                 </a>
 
-                <!-- X / Twitter -->
+                <!-- X -->
                 <a href="https://x.com/dhiizt" target="_blank" class="contact-item">
                     <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -498,7 +282,7 @@
                     @dhiizt
                 </a>
 
-                <!-- LinkedIn (NEW) -->
+                <!-- LinkedIn -->
                 <a href="https://www.linkedin.com/in/yudistiraaaa/" target="_blank" class="contact-item">
                     <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.064 0-1.14.92-2.064 2.063-2.064 1.14 0 2.064.925 2.064 2.064 0 1.139-.925 2.064-2.064 2.064zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -506,7 +290,7 @@
                     LinkedIn
                 </a>
 
-                <!-- Telegram (NEW) -->
+                <!-- Telegram -->
                 <a href="https://t.me/dhizt" target="_blank" class="contact-item">
                     <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
@@ -517,7 +301,7 @@
         </div>
     </section>
 
-    <!-- Summary Section -->
+    <!-- SUMMARY -->
     <section class="summary">
         <div class="container">
             <div class="section-header">
@@ -531,7 +315,7 @@
         </div>
     </section>
 
-    <!-- Experience Section (tetap sama seperti yang kamu kirim) -->
+    <!-- EXPERIENCE -->
     <section class="experience">
         <div class="container">
             <div class="section-header">
@@ -539,14 +323,187 @@
                 <p class="section-subtitle">Building and growing Web3 communities since 2023</p>
             </div>
             <div class="timeline">
-                <!-- ... (sisa kode experience tetap sama seperti yang kamu paste) ... -->
-                <!-- Aku biarkan sama persis biar gak ada perubahan lain -->
+                <!-- GAIAI -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-role">Part of the Team - Community Building/Growth</div>
+                        <div class="timeline-date">09/2025 - Present</div>
+                    </div>
+                    <div class="timeline-company">
+                        <a href="https://www.gaiai.io/" target="_blank" rel="noopener noreferrer">GAIAI</a>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Lead and oversee the GAIAI community across Discord and X (Twitter)</li>
+                        <li>Coordinate moderators and ambassadors to maintain smooth community operations</li>
+                        <li>Plan and execute community events, game nights, and partnership collaborations</li>
+                    </ul>
+                </div>
+
+                <!-- Play3.io -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-role">Community Moderator</div>
+                        <div class="timeline-date">06/2025 - 12/2025</div>
+                    </div>
+                    <div class="timeline-company">
+                        <a href="https://www.play3.io/" target="_blank" rel="noopener noreferrer">Play3.io</a>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Manage and moderate community discussions across PLAY3 Platform and Telegram</li>
+                        <li>Support users by answering inquiries and resolving issues</li>
+                        <li>Organize events and campaigns to boost community engagement</li>
+                    </ul>
+                </div>
+
+                <!-- Shadow Of Ferenor -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-role">Ambassador & Moderator</div>
+                        <div class="timeline-date">03/2025 - Hiatus</div>
+                    </div>
+                    <div class="timeline-company">
+                        <a href="https://www.shadowofferenor.com/" target="_blank" rel="noopener noreferrer">Shadow Of Ferenor</a>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Monitored discussions and enforced community guidelines</li>
+                        <li>Host Game night every Saturday</li>
+                        <li>Provide feedback for games in development</li>
+                    </ul>
+                </div>
+
+                <!-- OVERTAKE -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-role">Community Moderator</div>
+                        <div class="timeline-date">09/2024 - Present</div>
+                    </div>
+                    <div class="timeline-company">
+                        <a href="https://overtake.world/" target="_blank" rel="noopener noreferrer">OVERTAKE</a>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Moderated high-traffic Discord for decentralized gaming publisher (30M+ players)</li>
+                        <li>Led community-building initiatives for multiple games</li>
+                        <li>Developed FAQ and resource documents (reduced repetitive inquiries by 25%)</li>
+                    </ul>
+                </div>
+
+                <!-- CARV -->
+                <div class="timeline-item">
+                    <div class="timeline-header">
+                        <div class="timeline-role">Community Moderator</div>
+                        <div class="timeline-date">07/2023 - 06/2025</div>
+                    </div>
+                    <div class="timeline-company">
+                        <a href="https://carv.io/" target="_blank" rel="noopener noreferrer">CARV</a>
+                    </div>
+                    <ul class="timeline-bullets">
+                        <li>Hosted daily community events and game nights (100+ participants)</li>
+                        <li>Produced live streams, increasing average concurrent viewers by 30%</li>
+                        <li>Cultivated loyal member base through proactive engagement</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills, Achievements, Stats, Social Proof, CTA, Footer -->
-    <!-- (Semua section lain aku biarkan persis seperti yang kamu kirim) -->
+    <!-- SKILLS -->
+    <section class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card"><div class="skill-name">Discord</div><div class="skill-level">Advanced</div></div>
+                <div class="skill-card"><div class="skill-name">Telegram</div><div class="skill-level">Advanced</div></div>
+                <div class="skill-card"><div class="skill-name">Community Management</div><div class="skill-level">Advanced</div></div>
+                <div class="skill-card"><div class="skill-name">Event Planning</div><div class="skill-level">Advanced</div></div>
+                <div class="skill-card"><div class="skill-name">Content Creation</div><div class="skill-level">Advanced</div></div>
+                <div class="skill-card"><div class="skill-name">Canva + OBS Studio</div><div class="skill-level">Advanced</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Achievements</h2>
+            </div>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Community Growth at GAIAI</h3>
+                    <ul class="achievement-bullets">
+                        <li>Increased member count using OG invite system</li>
+                        <li>Boosted engagement with daily quizzes and push role events</li>
+                        <li>Organized poker tournament with 200 registered participants</li>
+                    </ul>
+                </div>
+                <div class="achievement-card">
+                    <h3 class="achievement-title">Ambassador Achievements</h3>
+                    <ul class="achievement-bullets">
+                        <li><strong>ForeverDAO</strong> — Top ambassador on official leaderboard</li>
+                        <li><strong>Foreso</strong> — Selected as 1 of 10 ambassadors from 300+ applicants</li>
+                        <li><strong>Flipit & Spot Zero</strong> — Created high-impression educational content</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">By The Numbers</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-number">200K+</div><div class="stat-label">Community Members Managed</div></div>
+                <div class="stat-card"><div class="stat-number">3+</div><div class="stat-label">Years Experience</div></div>
+                <div class="stat-card"><div class="stat-number">6+</div><div class="stat-label">Projects Moderated</div></div>
+                <div class="stat-card"><div class="stat-number">4</div><div class="stat-label">Ambassador Roles</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF (FIXED) -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Social Proof</h2>
+                <p class="section-subtitle">Highlights from my journey on X</p>
+            </div>
+            <div class="social-grid">
+                <a href="https://x.com/i/status/1884208045749928343" target="_blank" class="social-card">
+                    <div class="social-card-content">🃏 Game night events & community engagement</div>
+                    <div class="social-card-footer"><span class="social-platform">X Post • 2025</span><span class="social-arrow">↗</span></div>
+                </a>
+                <a href="https://x.com/i/status/1902665628747812981" target="_blank" class="social-card">
+                    <div class="social-card-content">🎮 Community growth & project highlights</div>
+                    <div class="social-card-footer"><span class="social-platform">X Post • 2025</span><span class="social-arrow">↗</span></div>
+                </a>
+                <a href="https://x.com/i/status/1923224222903697500" target="_blank" class="social-card">
+                    <div class="social-card-content">🤝 Ambassador milestones & achievements</div>
+                    <div class="social-card-footer"><span class="social-platform">X Post • 2025</span><span class="social-arrow">↗</span></div>
+                </a>
+                <a href="https://x.com/i/status/1904933932019442122" target="_blank" class="social-card">
+                    <div class="social-card-content">📍 Real life event at CARV — on-ground community building</div>
+                    <div class="social-card-footer"><span class="social-platform">X Post • 2025</span><span class="social-arrow">↗</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container cta-content">
+            <h2 class="cta-title">Let's Build Together</h2>
+            <p class="cta-text">Looking for a dedicated community manager who delivers results? Let's connect.</p>
+            <div class="cta-buttons">
+                <a href="https://x.com/dhiizt" target="_blank" class="btn btn-primary">Follow on X</a>
+                <a href="mailto:youdhisthira@gmail.com" class="btn btn-secondary">Send Email</a>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
@@ -554,8 +511,5 @@
         </div>
     </footer>
 
-    <script>
-        // script tetap sama
-    </script>
 </body>
 </html>
